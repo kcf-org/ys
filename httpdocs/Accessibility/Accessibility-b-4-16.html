@@ -1,0 +1,764 @@
+<html>
+<head>
+<title>社團法人台灣揚善社會公益服務協會-居家.飯店.機構..改善範例</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!----------------------------以下程式碼放在 <head> 下面------------------------------>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.cycle2.js"></script>
+<style type="text/css">
+.cycle-slideshow { width: 960px; }
+.cycle-slideshow img { width: 960; height: 203 }
+</style>
+<style type="text/css">
+<!--
+	#myDiv {
+		overflow: hidden;
+		width: 240px;
+		background-color: #FFFFFF;
+		
+	}
+	
+	#myDiv img {
+		border: 1px solid;
+		width: 240px;
+		height: 160px;
+	}
+-->
+</style>
+  
+  <script>
+  $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  });
+  </script>
+
+<!-- #INCLUDE FILE="001.html" -->
+<style>
+<!--
+.yog-page .yom-art-bd .yog-11u{ overflow:visible;}
+.yog-page .yom-art-bd .yog-11u{ overflow:visible;}
+.yom-art-content{ zoom:0;}
+.yom-art-content{ zoom:0;}
+.yom-art-content .bd{ zoom:0;}
+.yom-art-content .bd{ zoom:0;}
+-->
+</style>
+<!----------------------------以上程式碼放在 </head> 上面------------------------------>
+
+<!----------------------以下程式碼---------------------------------------------------->
+
+<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+<!----------------------以上程式碼---------------------------------------------------->
+<script language="JavaScript" fptype="dynamicanimation">
+<!--
+function dynAnimation() {}
+function clickSwapImg() {}
+//-->
+</script>
+<script language="JavaScript1.2" fptype="dynamicanimation" src="../animate.js">
+</script>
+</head>
+<body bgcolor="#FCFAE8" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="../about/images/about_21.gif">
+<!-- Save for Web Slices (about.psd) -->
+<div align="center">
+<table id="___01" width="1002" height="2051" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="9" height="643" rowspan="3">
+			<!--webbot bot="Include" U-Include="../share-1.html" TAG="BODY" startspan -->
+<!-- Save for Web Slices (about.psd) -->
+<table id="___01" width="1002" height="298" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="8">
+			<img src="../about/images/about_01.gif" width="1001" height="133" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="133" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="../about/images/about_02.gif" width="108" height="39" alt=""></td>
+		<td>
+			<a onmouseover="var img=document['fpAnimswapImgFP9'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP9'].src=document['fpAnimswapImgFP9'].imgRolln" href="../index.html">
+			<img src="../about/images/about_03.gif" width="130" height="39" alt="" id="fpAnimswapImgFP9" name="fpAnimswapImgFP9" dynamicanimation="fpAnimswapImgFP9" lowsrc="../about/images/about-1_03.gif" border="0"></a></td>
+		<td>
+			<a onmouseover="var img=document['fpAnimswapImgFP8'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP8'].src=document['fpAnimswapImgFP8'].imgRolln" href="../about/about.html">
+			<img src="../about/images/about_04.gif" width="133" height="39" alt="" id="fpAnimswapImgFP8" name="fpAnimswapImgFP8" dynamicanimation="fpAnimswapImgFP8" lowsrc="../about/images/about-1_04.gif" border="0"></a></td>
+		<td>
+			<a onmouseover="var img=document['fpAnimswapImgFP7'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP7'].src=document['fpAnimswapImgFP7'].imgRolln" href="../activity/activity-a.html">
+			<img src="../about/images/about_05.gif" width="130" height="39" alt="" id="fpAnimswapImgFP7" name="fpAnimswapImgFP7" dynamicanimation="fpAnimswapImgFP7" lowsrc="../about/images/about-1_05.gif" border="0"></a></td>
+		<td>
+			<a onmouseover="var img=document['fpAnimswapImgFP10'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP10'].src=document['fpAnimswapImgFP10'].imgRolln" href="Accessibility-a.html">
+			<img src="../about/images/about_06.gif" width="129" height="39" alt="" id="fpAnimswapImgFP10" name="fpAnimswapImgFP10" dynamicanimation="fpAnimswapImgFP10" lowsrc="../about/images/about-1_06.gif" border="0"></a></td>
+		<td>
+			<a onmouseover="var img=document['fpAnimswapImgFP5'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP5'].src=document['fpAnimswapImgFP5'].imgRolln" href="javascript:void(0)">
+			<img src="../about/images/about_07.gif" width="144" height="39" alt="" id="fpAnimswapImgFP5" name="fpAnimswapImgFP5" dynamicanimation="fpAnimswapImgFP5" lowsrc="../about/images/about-1_07.gif" border="0"></a></td>
+		<td>
+			<a onmouseover="var img=document['fpAnimswapImgFP6'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP6'].src=document['fpAnimswapImgFP6'].imgRolln" href="../contact/contact-a.html">
+			<img src="../about/images/about_08.gif" width="123" height="39" alt="" id="fpAnimswapImgFP6" name="fpAnimswapImgFP6" dynamicanimation="fpAnimswapImgFP6" lowsrc="../about/images/about-1_08.gif" border="0"></a></td>
+		<td>
+			<img src="../about/images/about_09.gif" width="104" height="39" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="39" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="8">
+			<!---------------以下是圖片輪播------------------->
+<div class="cycle-slideshow " style="width: 1001px; height: 471px">
+<img src="../jpg/1jpg.gif" style="width: 1001px; height: 471px" align="top">
+<img src="../jpg/2jpg.gif" style="width: 1001px; height: 471px" align="top">
+<img src="../jpg/3jpg.gif" style="width: 1001px; height: 471px" align="top">
+<img src="../jpg/4jpg.gif" style="width: 1001px; height: 471px" align="top">
+</div>
+<!---------------以上是圖片輪播-------------------></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="471" alt=""></td>
+	</tr>
+	</table>
+<!--webbot bot="Include" i-checksum="53464" endspan --></td>
+		<td height="133">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="133" alt=""></td>
+	</tr>
+	<tr>
+		<td height="39">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="39" alt=""></td>
+	</tr>
+	<tr>
+		<td height="471">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="471" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="9" height="50">
+			<img src="../about/images/about_11.gif" width="1001" height="50" alt=""></td>
+		<td height="50">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="50" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="286" rowspan="5" valign="top">
+			<!--webbot bot="Include" U-Include="share-Accessibility.html" TAG="BODY" startspan -->
+<!-- Save for Web Slices (about.psd) -->
+<table id="___01" width="282" height="115" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="282">
+			<img src="images/Accessibility_12.gif" width="282" height="56" alt=""></td>
+	</tr>
+	<tr>
+		<td width="282">
+			<a onmouseover="var img=document['fpAnimswapImgFP1'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP1'].src=document['fpAnimswapImgFP1'].imgRolln" href="Accessibility-a.html">
+			<img src="images/Accessibility_14.gif" width="282" height="57" alt="" id="fpAnimswapImgFP1" name="fpAnimswapImgFP1" dynamicanimation="fpAnimswapImgFP1" lowsrc="images/Accessibility-1_14.gif" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="282">
+			<a onmouseover="var img=document['fpAnimswapImgFP2'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP2'].src=document['fpAnimswapImgFP2'].imgRolln" href="Accessibility-b.html">
+			<img src="images/Accessibility_16.gif" width="282" height="57" alt="" id="fpAnimswapImgFP2" name="fpAnimswapImgFP2" dynamicanimation="fpAnimswapImgFP2" lowsrc="images/Accessibility-1_16.gif" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="282">
+			<a onmouseover="var img=document['fpAnimswapImgFP3'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP3'].src=document['fpAnimswapImgFP3'].imgRolln" href="Accessibility-c.html">
+			<img src="images/Accessibility_17.gif" width="282" height="57" alt="" id="fpAnimswapImgFP3" name="fpAnimswapImgFP3" dynamicanimation="fpAnimswapImgFP3" lowsrc="images/Accessibility-1_17.gif" border="0"></a></td>
+	</tr>
+	<tr>
+		<td width="282">
+			<a onmouseover="var img=document['fpAnimswapImgFP4'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP4'].src=document['fpAnimswapImgFP4'].imgRolln" href="Accessibility-d.html">
+			<img src="images/Accessibility_18.gif" width="282" height="59" alt="" id="fpAnimswapImgFP4" name="fpAnimswapImgFP4" dynamicanimation="fpAnimswapImgFP4" lowsrc="images/Accessibility-1_18.gif" border="0"></a></td>
+	</tr>
+	</table>
+<!-- End Save for Web Slices -->
+<!--webbot bot="Include" i-checksum="19277" endspan --></td>
+		<td colspan="6" rowspan="7" align="center" valign="top">
+			<!--webbot bot="Include" U-Include="share-Accessibility-b-4.htm" TAG="BODY" startspan -->
+
+			<table border="0" width="55%" height="110">
+				<tr>
+					<td align="center"><font face="微軟正黑體" size="5">
+					<font color="#FF0000">
+					<a href="Accessibility-b-1-1.html">
+					<font color="#FF0000"><span style="text-decoration: none">★</span></font><span style="text-decoration: none">&nbsp;&nbsp;
+					</span></a></font>
+					<a href="Accessibility-b-1-1.html">
+					<span style="text-decoration: none; font-weight:700">
+					<font color="#3366FF">一般居家住宅改善案例</font></span><span style="text-decoration: none"><font color="#3366FF"> </font><font color="#FF0000">&nbsp; ★</font></span></a></font></td>
+				</tr>
+				<tr>
+					<td align="center"><font face="微軟正黑體" size="5">
+					<font color="#FF0000">
+					<a href="Accessibility-b-2.html">
+					<font color="#FF0000"><span style="text-decoration: none">★&nbsp;</span></font><span style="text-decoration: none">
+					</span></a> </font>
+					<a href="Accessibility-b-2-1.html">
+					<span style="text-decoration: none; font-weight:700">
+					<font color="#3366FF">餐廳.旅館.飯店改善案例</font></span></a><font color="#FF0000"><span style="text-decoration: none">&nbsp; 
+					★</span></font></font></td>
+				</tr>
+				<tr>
+					<td align="center"><font face="微軟正黑體" size="5">
+					<font color="#FF0000">
+					<a href="Accessibility-b-3.html">
+					<span style="text-decoration: none"><font color="#FF0000">★&nbsp;</font>
+					</span></a> </font>
+					<span style="text-decoration: none"><font color="#3366FF">
+					<span style="text-decoration: none; font-weight:700">
+					<a href="Accessibility-b-3-1.html">
+					<font color="#3366FF"><span style="text-decoration: none">
+					公司.學校.機構改善案例</span></font></a></span></font>&nbsp; 
+					</span> 
+					<font color="#FF0000"><span style="text-decoration: none">★</span></font></font></td>
+				</tr>
+				<tr>
+					<td align="center">
+					<font color="#FF0000" face="微軟正黑體" size="5">
+					<a href="Accessibility-b-1-1.html">
+					<font color="#FF0000"><span style="text-decoration: none">★</span></font></a></font><b><font color="#0000FF" face="微軟正黑體" size="5"><span style="text-decoration: none"><a href="Accessibility-b-4-1.html"><font color="#3366FF"><span style="text-decoration: none">「衛浴一根桿」補助案例</span></font></a></span></font></b><font color="#FF0000" face="微軟正黑體" size="5">&nbsp;
+					<a href="Accessibility-b-1-1.html">
+					<font color="#FF0000"><span style="text-decoration: none">★</span></font></a></font></td>
+				</tr>
+				<tr>
+					<td align="center">　</td>
+				</tr>
+			</table>
+
+<table border="2" width="497" height="72" bordercolor="#000000">
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" colspan="3" bgcolor="#CC0066">
+					<font color="#FFFFFF" face="微軟正黑體" size="5">「衛浴一根桿」補助案例</font><font color="#FF0000" face="微軟正黑體" size="5"> </font>
+					</td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-1.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-林○成</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-2.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-耿○雅</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-3.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-張侯○月</span></font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-4.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-郭○章</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-5.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-陳○喜</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-6.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-陳○屘</span></font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-7.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-陳○意</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<font color="#666666">
+					<a href="Accessibility-b-4-8.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-廖</span></font></a></font><a href="Accessibility-b-4-18.html"><font color="#666666"><span style="text-decoration: none">○</span></font></a><a href="Accessibility-b-4-1.html"><font color="#666666"><span style="text-decoration: none">杉</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-9.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-蘇余○蓮</span></font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-10.html">
+					<font color="#666666"><span style="text-decoration: none">楠梓-古鍾○貞</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-11.html">
+					<font color="#666666"><span style="text-decoration: none">楠梓-袁○財</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-12.html">
+					<font color="#666666"><span style="text-decoration: none">楠梓-劉○明</span></font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-13.html">
+					<font color="#666666"><span style="text-decoration: none">澎湖-呂○枝</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-14.html">
+					<font color="#666666"><span style="text-decoration: none">澎湖-李陳○鸞</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-15.html">
+					<font color="#666666"><span style="text-decoration: none">澎湖-李歐○綢</span></font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-16.html">
+					<font color="#666666"><span style="text-decoration: none">
+					澎湖-李○粉</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-17.html">
+					<font color="#666666"><span style="text-decoration: none">
+					澎湖-黃○連</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-18.html">
+					<font color="#666666"><span style="text-decoration: none">
+					澎湖-蔡○石</span></font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-19.html"><span style="text-decoration: none">
+					<font color="#666666">小港區-陳潘○妹</font></span></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<font color="#666666">
+					<a href="Accessibility-b-4-20.html">
+					<font color="#666666"><span style="text-decoration: none">小港區-黃</span></font></a></font><a href="Accessibility-b-4-18.html"><font color="#666666"><span style="text-decoration: none">○</span></font></a><a href="Accessibility-b-4-1.html"><font color="#666666"><span style="text-decoration: none">女</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<font face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-21.html" style="text-decoration: none">
+					<font color="#666666">高雄市-小林村</font></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<font face="微軟正黑體" size="4">
+					<a href="Accessibility-b-4-22.html" style="text-decoration: none">
+					<font color="#666666">高雄市-小林村(2)</font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<font size="4" face="微軟正黑體" color="#666666">
+					<a href="Accessibility-b-4-23.html">
+					<span style="text-decoration: none"><font color="#666666">
+					小港區-陳○枝</font></span></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<font size="4" face="微軟正黑體" color="#666666">
+					<a href="Accessibility-b-4-24.html">
+					<span style="text-decoration: none"><font color="#666666">
+					小港區-黃○森</font></span></a></font></td>
+	</tr>
+	<tr>
+		<td align="center" style="border-style: solid; border-width: 1px" width="151">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-25.html">
+					<font color="#666666"><span style="text-decoration: none">
+					楠梓區-曲○鼎</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px" width="161">
+					<font face="微軟正黑體" size="4" color="#666666">
+					<a href="Accessibility-b-4-26.html">
+					<font color="#666666"><span style="text-decoration: none">
+					鳳山區-莊○</span></font></a></font></td>
+		<td align="center" style="border-style: solid; border-width: 1px">
+					<a href="Accessibility-b-4-27.html">
+					<font color="#666666" face="微軟正黑體" size="4">
+					<span style="text-decoration: none">鹽埕區-黃○森</span></font></a></td>
+	</tr>
+	</table>
+
+<!--webbot bot="Include" i-checksum="18645" endspan --></td>
+		<td height="56">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="56" alt=""></td>
+	</tr>
+	<tr>
+		<td height="57">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="57" alt=""></td>
+	</tr>
+	<tr>
+		<td height="57">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="57" alt=""></td>
+	</tr>
+	<tr>
+		<td height="57">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="57" alt=""></td>
+	</tr>
+	<tr>
+		<td height="59">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="59" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="3" valign="top">
+			<!--webbot bot="Include" U-Include="../share-3.html" TAG="BODY" startspan -->
+
+<div align="center">
+　<p>　</p>
+	<table border="0" width="11%" height="343" cellspacing="0">
+		<tr>
+			<td align="center" height="126">
+			<a href="https://zh-tw.facebook.com/taiwanyangshan/">
+			<img border="0" src="../jpg/a.jpg" width="233" height="121"></a></td>
+		</tr>
+		<tr>
+			<td align="center"><a href="http://kcf.org.tw/">
+			<img border="0" src="../jpg/f.jpg" width="233" height="121"></a></td>
+		</tr>
+		<tr>
+			<td align="center"><a href="http://www.barrierfree.com.tw/">
+			<img border="0" src="../jpg/b.jpg" width="233" height="121"></a></td>
+		</tr>
+		<tr>
+			<td align="center" height="94">
+			<a href="http://www.xuricheng.com.tw/">
+			<img border="0" src="../jpg/c.jpg" width="233" height="121"></a></td>
+		</tr>
+		<tr>
+			<td align="center" height="94">
+			<a href="https://shopee.tw/wheelman">
+			<img border="0" src="../jpg/d.jpg" width="233" height="121"></a></td>
+		</tr>
+		<tr>
+			<td align="center" height="94">
+			<a href="https://zh-tw.facebook.com/KaoLoveLife/">
+			<img border="0" src="../jpg/e.jpg" width="233" height="121"></a></td>
+		</tr>
+		</table>
+</div>
+
+<!--webbot bot="Include" i-checksum="43663" endspan --></td>
+		<td height="69">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="69" alt=""></td>
+	</tr>
+	<tr>
+		<td height="823" rowspan="2">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="466" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="6" height="823" align="center" valign="top">
+			<table border="0" width="72%">
+				<tr>
+					<td align="center">
+					&nbsp;</td>
+					<td width="394">
+					&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="center" bgcolor="#FF9999">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#FFFFFF" face="微軟正黑體" size="4">專案名稱 : 
+					</font></td>
+					<td width="394">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">澎湖-李○粉</font></td>
+				</tr>
+				<tr>
+					<td align="center" bgcolor="#FF9999" valign="top">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font color="#FFFFFF" face="微軟正黑體" size="4">施工項目 : </font> </td>
+					<td width="394">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<font face="微軟正黑體" size="4" color="#666666">浴室牆壁不鏽鋼扶手安裝</font></td>
+				</tr>
+				<tr>
+					<td align="center" valign="top">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">&nbsp;</td>
+					<td width="394">
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					&nbsp;</td>
+				</tr>
+				</table>
+			<table border="0" width="72%" height="11">
+				<tr>
+					<td>
+					<p style="line-height: 150%; margin-top: 0; margin-bottom: 0" align="center">
+					<font color="#FFFFFF" size="4" face="微軟正黑體">
+					<span style="background-color: #FF9999">&nbsp;&nbsp; 施工前&nbsp;&nbsp; 
+					</span></font></td>
+					<td>
+					<p align="center">
+					<font color="#FFFFFF" size="4" face="微軟正黑體">
+					<span style="background-color: #FF9999">&nbsp;&nbsp; 施工後&nbsp;&nbsp; 
+					</span></font></td>
+				</tr>
+				<tr>
+					<td>
+					<p align="center">
+					<a  class="fancybox"  href="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-2.jpg" data-fancybox-group="gallery">
+					<img border="0" src="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-2.jpg" width="200" height="150"></a></td>
+					<td>
+					<p align="center">
+					<a  class="fancybox"  href="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-3.jpg" data-fancybox-group="gallery">
+					<img border="0" src="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-3.jpg" width="200" height="150"></a></td>
+				</tr>
+				<tr>
+					<td>
+					&nbsp;</td>
+					<td>
+					&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+					<p align="center" style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<a  class="fancybox"  href="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-1.jpg" data-fancybox-group="gallery">
+					<img border="0" src="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-1.jpg" width="200" height="150"></a></td>
+					<td>
+					<p align="center" style="line-height: 150%; margin-top: 0; margin-bottom: 0">
+					<a  class="fancybox"  href="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-4.jpg" data-fancybox-group="gallery">
+					<img border="0" src="images/Accessibility-b-4.html/Accessibility-b-4-16/Accessibility-b-4-16-4.jpg" width="200" height="150"></a></td>
+				</tr>
+				</table></td>
+	</tr>
+	<tr>
+		<td colspan="9" height="421">
+			<!--webbot bot="Include" U-Include="../share-4.html" TAG="BODY" startspan -->
+<!-- Save for Web Slices (about.psd) -->
+<table id="___01" width="1002" height="421" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="../about/images/about_24.gif" width="1001" height="421" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="421" alt=""></td>
+	</tr>
+	</table>
+<!--webbot bot="Include" i-checksum="22766" endspan --></td>
+		<td height="421">
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="1" height="421" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="108" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="130" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="44" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="89" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="130" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="129" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="144" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="123" height="1" alt=""></td>
+		<td>
+			<img src="../about/images/&#x9593;&#x8ddd;.gif" width="104" height="1" alt=""></td>
+		<td></td>
+	</tr>
+</table>
+</div>
+<!-- End Save for Web Slices -->
+</body>
+</html>
